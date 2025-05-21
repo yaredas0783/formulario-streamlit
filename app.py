@@ -40,8 +40,8 @@ if st.button("Enviar"):
     st.success("✅ ¡Gracias por enviar tu respuesta!")
 
 # Mostrar todas las respuestas (opcional)
-if st.checkbox("Mostrar respuestas"):
-    if os.path.exists(archivo):
-        st.write(pd.read_csv(archivo))
-    else:
-        st.write("Aún no hay respuestas.")
+#if st.checkbox("Mostrar respuestas"):
+ #   if os.path.exists(archivo):
+  #      st.write(pd.read_csv(archivo))
+   # else:
+    #    st.write("Aún no hay respuestas.")
