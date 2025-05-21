@@ -1,19 +1,11 @@
 import streamlit as st
 import pandas as pd
-import os
-import json
 from google.oauth2.service_account import Credentials
 import gspread
 
-# Crear archivo JSON con las credenciales a partir del secreto
-if not os.path.exists("credenciales.json"):
-    creds_json = st.secrets["Credenciales"]
-    with open("credenciales.json", "w") as f:
-        json.dump(dict(creds_json), f)  # 👈 usar json.dump
-
-# Conectarse a Google Sheets
-credenciales = Credentials.from_service_account_file(
-    'credenciales.json',
+# Conectarse a Google Sheets usando las credenciales desde st.secrets
+credenciales = Credentials.from_service_account_info(
+    st.secrets["Credenciales"],
     scopes=["https://www.googleapis.com/auth/spreadsheets"]
 )
 gc = gspread.authorize(credenciales)
